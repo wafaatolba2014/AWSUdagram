@@ -11,7 +11,8 @@
     "clean": "rmdir /Q /S www",
     "copy:scripts": "@powershell copy ./package.json ./www/package.json && @powershell copy ./.npmrc ./www/.npmrc",
     "deploy": "chmod +x ./bin/deploy.sh && ./bin/deploy.sh",
-    "build": "npx tsc",
+    "buildLocal": "npx tsc",
+    "build": "npm run clean && tsc && cp -rf src/config www/config &&  cp .npmrc www/.npmrc && cp package.json www/package.json && cd www && zip -r Archive.zip . && cd ..",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
