@@ -8,7 +8,7 @@
     "tsc": "tsc",
     "dev": "ts-node-dev --respawn --transpileOnly ./src/server.ts",
     "prod": "tsc && node ./www/server.js",
-    "clean": "rmdir /Q /S www",
+    "clean": "rm -rf www/ || true",
     "copy:scripts": "@powershell copy ./package.json ./www/package.json && @powershell copy ./.npmrc ./www/.npmrc",
     "deploy": "chmod +x ./bin/deploy.sh && ./bin/deploy.sh",
     "buildLocal": "npx tsc",
